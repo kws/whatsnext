@@ -15,8 +15,8 @@ const isFirefox = firefox > 0; // Only needed if you need to support the redirec
 export const msalConfig = {
     auth: {
         clientId: "0a61c279-646b-4055-a5f1-1c3da7f70f18",
-        redirectUri: "/",
-        postLogoutRedirectUri: "/"
+        redirectUri: "/whatsnext",
+        postLogoutRedirectUri: "/whatsnext"
     },
     cache: {
         storeAuthStateInCookie: isIE || isEdge || isFirefox

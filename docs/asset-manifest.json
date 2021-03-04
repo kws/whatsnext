@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/whatsnext/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/whatsnext/static/js/main.fd6a6afe.chunk.js",
-    "main.js.map": "/whatsnext/static/js/main.fd6a6afe.chunk.js.map",
+    "main.js": "/whatsnext/static/js/main.e048c441.chunk.js",
+    "main.js.map": "/whatsnext/static/js/main.e048c441.chunk.js.map",
     "runtime-main.js": "/whatsnext/static/js/runtime-main.32fca672.js",
     "runtime-main.js.map": "/whatsnext/static/js/runtime-main.32fca672.js.map",
     "static/js/2.477efe13.chunk.js": "/whatsnext/static/js/2.477efe13.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.32fca672.js",
     "static/js/2.477efe13.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.fd6a6afe.chunk.js"
+    "static/js/main.e048c441.chunk.js"
   ]
 }
