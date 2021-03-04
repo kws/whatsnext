@@ -1,9 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 
-import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
-import { InteractionStatus, InteractionType } from "@azure/msal-browser";
-import { loginRequest } from "../authConfig";
+import { useMsal } from "@azure/msal-react";
+import { InteractionStatus } from "@azure/msal-browser";
 
 import { callMsGraph } from "../utils/MsGraphApiCall";
 
@@ -30,7 +29,7 @@ const Calendar = () => {
         <ul>
             {events.map(event => {
                 return (
-                    <li>{new Date(event.start.dateTime).toLocaleTimeString()} - {event.subject}</li>
+                    <li key={event.id}>{new Date(event.start.dateTime).toLocaleTimeString()} - {event.subject}</li>
                 )
             })}
         </ul>
