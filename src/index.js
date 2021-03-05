@@ -1,10 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
+import { MsalProvider } from "@azure/msal-react";
+import { PublicClientApplication, EventType } from "@azure/msal-browser";
+
 import './index.css';
 import App from './App';
 
-import { MsalProvider } from "@azure/msal-react";
-import { PublicClientApplication, EventType } from "@azure/msal-browser";
+Sentry.init({
+    dsn: "https://c42f3190b1094dd4b4dd426834da98c6@o108858.ingest.sentry.io/5662792",
+    integrations: [new Integrations.BrowserTracing()],
+
+    // We recommend adjusting this value in production, or using tracesSampler
+    // for finer control
+    tracesSampleRate: 1.0,
+});
 
 // MSAL configuration
 const configuration = {
@@ -12,7 +23,6 @@ const configuration = {
         clientId: '34a2dfb8-fcb2-4c55-8436-ed03b6b7c683'
     }
 };
-
 
 export const msalInstance = new PublicClientApplication(configuration);
 
