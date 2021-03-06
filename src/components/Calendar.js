@@ -1,11 +1,12 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+import {Helmet} from "react-helmet";
 
 import { useMsal } from "@azure/msal-react";
 import { InteractionStatus } from "@azure/msal-browser";
 
 import { callMsGraph } from "../utils/MsGraphApiCall";
-import Event from "./Event";
+import Event, {formatCountdown} from "./Event";
 
 const RELOAD_INTERVAL_IN_MINUTES = 1;
 
@@ -63,6 +64,11 @@ const Calendar = () => {
 
     events.map(event => {
         event.timeinfo.timeDiff = event.timeinfo.start - time;
+        event.timeinfo.timeDiffSecs = Math.floor(event.timeinfo.timeDiff / 1000);
+
+        const offsetDiff = Math.min(1200, event.timeinfo.timeDiffSecs + 300);
+        event.timeinfo.alertStatus = offsetDiff > 0 ? 1200 - offsetDiff : 0;
+
         event.timeinfo.started = event.timeinfo.start >= time;
         event.timeinfo.ended = event.timeinfo.end >= time;
         return event;
@@ -70,13 +76,29 @@ const Calendar = () => {
 
     const currentEvents = events.filter(event => event.timeinfo.ended)
 
-    let currentTime = new Date(time).toLocaleTimeString("en-GB",{timeStyle: 'short'})
+    const maxAlertStatus = events.reduce((value, event) => Math.max(value, event.timeinfo.alertStatus), 0)
+
+    let currentTime = new Date(time).toLocaleTimeString().substring(0, 5)
     if ((Math.floor(time / 1000)) % 2 === 0) {
         currentTime = currentTime.replace(":", " ");
     }
 
+    const nextEvent = currentEvents.length > 0 ? currentEvents[0] : null;
+    let icon = '1-favicon.ico';
+    if (maxAlertStatus > 600) {
+        icon = maxAlertStatus % 2 === 0 ? '3-favicon.ico' : 'alert-favicon.ico';
+    } else if (maxAlertStatus > 400) {
+        icon = '2-favicon.ico';
+    }
+    console.log(maxAlertStatus, icon);
+
     return (
         <>
+            <Helmet>
+                <title>{nextEvent ? `${formatCountdown(nextEvent).replaceAll(' ', '')} ${nextEvent.subject}` : "WhatsNext"}</title>
+                <link rel="icon" href={process.env.PUBLIC_URL + `/${icon}`} />
+
+            </Helmet>
             <div className="timeDisplay">{currentTime}</div>
             <ul>
                 {currentEvents.map(event => <Event key={event.id} event={event}/>)}

@@ -15,18 +15,14 @@ const getBlendColors = diff => {
     const greenValue = Math.max(0, Math.min(300, diff));
     const redValue = Math.max(0, Math.min(300, 600-diff));
 
-    console.log(`R: ${redValue} G:${greenValue} A:${alphaValue}`)
-
     const r = easeInOutCubic(redValue, 0, 128, 300);
     const g = easeInOutCubic(greenValue, 0, 128, 300);
     const a = easeInOutCubic(alphaValue, 0, 1,300);
 
-    console.log(`R: ${r} G:${g} A:${a}`)
-
     return {backgroundColor: `rgba(${r}, ${g}, 0, ${a})`};
 }
 
-const Event = ({event}) => {
+export const formatCountdown = (event) => {
     const diffInSecs = Math.floor(event.timeinfo.timeDiff / 1000);
     const absDiff = Math.abs(diffInSecs);
     const hours = Math.floor(absDiff /  3600 )
@@ -44,9 +40,15 @@ const Event = ({event}) => {
     } else {
         timeRep += `${minutes}m ${_0(seconds)}s`;
     }
+    return timeRep;
+}
 
+const Event = ({event}) => {
+    const diffInSecs = Math.floor(event.timeinfo.timeDiff / 1000);
     const flashClass = diffInSecs < 60 && diffInSecs > -300 ? 'flash': '';
     const pastClass = diffInSecs < -300 ? 'past': '';
+
+    const timeRep = formatCountdown(event);
 
     return (
         <li className={`event ${flashClass} ${pastClass}`}
