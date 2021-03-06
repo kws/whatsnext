@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 6vw;
+  font-size: 3vw;
   background: #000;
   color: #fff;
 }
@@ -40,35 +40,64 @@ html, body, #root {
 ul {
   position: absolute;
   top: 0;
-  display: flex;
-  flex-direction: column;
+
+  padding-block-start: 0;
   padding-inline-start: 0;
+  margin-block-start: 0;
   margin-inline-start: 0;
+  width: 100%;
 }
 
 li {
-  width: 100%;
-  margin-bottom: .5rem;
+  margin-bottom: 2rem;
 }
 
 .event {
   display: flex;
 }
 
-.event span {
+
+.event .time {
+  display: flex;
+  flex: 1;
+  white-space: nowrap;
+
+  margin-left: .3em;
+
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.event .title::after {
-  margin-right: .2em;
-}
-
-.event .title::after {
-  content: " @ ";
+.event .title {
+  display: flex;
+  flex: 8;
+  align-items: center;
 }
 
 .event .diff {
-  text-align: right;
-  width: 4em;
-  margin-right: 1em;
+  display: flex;
+  flex: 2;
+
+  font-size: 5vw;
+  white-space: nowrap;
+
+  margin-right: .3em;
+
+  align-items: center;
+  justify-content: flex-end;
 }
 
+.past {
+  color: #666;
+}
+
+.flash {
+  background-color: rgba(255, 0, 0, 1);
+  animation: blinker 3s ease-in infinite;
+}
+
+@keyframes blinker {
+  50% {
+    background-color: rgba(255, 0, 0, 0);
+  }
+}

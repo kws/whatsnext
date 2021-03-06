@@ -14,9 +14,10 @@ const loadAndPrepareData = async () => {
     const events = (graphData && graphData.value) ? graphData.value : [];
     events.sort((a, b) => a.start.dateTime.localeCompare(b.start.dateTime));
     events.map(event => {
-        const date = new Date(event.start.dateTime+"Z")
-        const timeRep = `${date.getHours()}`.padStart(2, '0') + ':' +`${date.getMinutes()}`.padStart(2, '0')
-        event.startinfo = {date, timeRep}
+        const start = new Date(event.start.dateTime+"Z")
+        const end = new Date(event.end.dateTime+"Z")
+        const startRep = `${start.getHours()}`.padStart(2, '0') + ':' +`${start.getMinutes()}`.padStart(2, '0')
+        event.timeinfo = {start, end, startRep}
         return event;
     });
     console.log("events", events);
@@ -61,9 +62,13 @@ const Calendar = () => {
     }, [inProgress]);
 
     events.map(event => {
-        event.startinfo.timeDiff = event.startinfo.date - time;
+        event.timeinfo.timeDiff = event.timeinfo.start - time;
+        event.timeinfo.started = event.timeinfo.start >= time;
+        event.timeinfo.ended = event.timeinfo.end >= time;
         return event;
     });
+
+    const currentEvents = events.filter(event => event.timeinfo.ended)
 
     let currentTime = new Date(time).toLocaleTimeString("en-GB",{timeStyle: 'short'})
     if ((Math.floor(time / 1000)) % 2 === 0) {
@@ -74,7 +79,7 @@ const Calendar = () => {
         <>
             <div className="timeDisplay">{currentTime}</div>
             <ul>
-                {events.map(event => <Event key={event.id} event={event}/>)}
+                {currentEvents.map(event => <Event key={event.id} event={event}/>)}
             </ul>
         </>
     )

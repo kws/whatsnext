@@ -1,32 +1,59 @@
 import React from 'react'
-
+import {easeInOutCubic} from 'js-easing-functions';
 const _0 = (value) => {
     return `${value}`.padStart(2, '0')
 }
 
+const getBlendColors = diff => {
+    // 900 - 15 minutes
+    // 600 - 10 minutes
+    // 300 - 5 minutes
+    if (diff > 900 | diff < -300) {
+        return {}
+    }
+    const alphaValue = Math.min(300, 900 - diff);
+    const greenValue = Math.max(0, Math.min(300, diff));
+    const redValue = Math.max(0, Math.min(300, 600-diff));
+
+    console.log(`R: ${redValue} G:${greenValue} A:${alphaValue}`)
+
+    const r = easeInOutCubic(redValue, 0, 128, 300);
+    const g = easeInOutCubic(greenValue, 0, 128, 300);
+    const a = easeInOutCubic(alphaValue, 0, 1,300);
+
+    console.log(`R: ${r} G:${g} A:${a}`)
+
+    return {backgroundColor: `rgba(${r}, ${g}, 0, ${a})`};
+}
+
 const Event = ({event}) => {
-    const diffInSecs = Math.floor(event.startinfo.timeDiff / 1000)
-    const hours = Math.floor(diffInSecs /  3600 )
-    const minutes = Math.floor(diffInSecs / 60 - (hours * 60))
-    const seconds = Math.floor(diffInSecs - (hours * 3600) - (minutes * 60))
+    const diffInSecs = Math.floor(event.timeinfo.timeDiff / 1000);
+    const absDiff = Math.abs(diffInSecs);
+    const hours = Math.floor(absDiff /  3600 )
+    const minutes = Math.floor(absDiff / 60 - (hours * 60))
+    const seconds = Math.floor(absDiff - (hours * 3600) - (minutes * 60))
 
     let timeRep = "";
-    if (diffInSecs < 0) {
-        timeRep = '~ past ~';
-    } else if (hours > 0) {
-        timeRep = `${hours}h ${_0(minutes)}m`;
+    if (event.timeinfo.timeDiff < 0) {
+        timeRep += 'T+ ';
+    }
+    if (hours > 0) {
+        timeRep += `${hours}h ${_0(minutes)}m`;
     } else if (minutes > 9) {
-        timeRep = `${minutes}m`;
+        timeRep += `${minutes}m`;
     } else {
-        timeRep = `${minutes}m ${_0(seconds)}s`;
+        timeRep += `${minutes}m ${_0(seconds)}s`;
     }
 
+    const flashClass = diffInSecs < 60 && diffInSecs > -300 ? 'flash': '';
+    const pastClass = diffInSecs < -300 ? 'past': '';
 
     return (
-        <li className="event">
-            <span className="diff">{timeRep}</span>
+        <li className={`event ${flashClass} ${pastClass}`}
+            style={diffInSecs > 60 ? getBlendColors(diffInSecs) : {}}>
+            <span className="time">{event.timeinfo.startRep}</span>
             <span className="title">{event.subject}</span>
-            <span className="time">{event.startinfo.timeRep}</span>
+            <span className="diff">{timeRep}</span>
         </li>
     )
 };
