@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "D7CBO";
+  src: url("./fonts/DSEG7Classic-Bold.woff") format('woff');
+}
+
 body {
   /*margin: 10em;*/
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +10,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 6vw;
+  background: #000;
+  color: #fff;
+}
+
+html, body, #root {
+  margin: 0;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+
+  width: 100%;
+
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.timeDisplay {
+  font-family: D7CBO;
+  font-size: 20vw;
+  color: #222;
 }
 
 ul {
+  position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   padding-inline-start: 0;

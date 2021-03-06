@@ -65,9 +65,14 @@ const Calendar = () => {
         return event;
     });
 
+    let currentTime = new Date(time).toLocaleTimeString("en-GB",{timeStyle: 'short'})
+    if ((Math.floor(time / 1000)) % 2 === 0) {
+        currentTime = currentTime.replace(":", " ");
+    }
+
     return (
         <>
-            <p>{new Date(time).toLocaleTimeString()}</p>
+            <div className="timeDisplay">{currentTime}</div>
             <ul>
                 {events.map(event => <Event key={event.id} event={event}/>)}
             </ul>
