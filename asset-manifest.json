@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/whatsnext/static/css/main.39505fb5.chunk.css",
-    "main.js": "/whatsnext/static/js/main.441cb7f7.chunk.js",
-    "main.js.map": "/whatsnext/static/js/main.441cb7f7.chunk.js.map",
+    "main.js": "/whatsnext/static/js/main.8ad41ca3.chunk.js",
+    "main.js.map": "/whatsnext/static/js/main.8ad41ca3.chunk.js.map",
     "runtime-main.js": "/whatsnext/static/js/runtime-main.32fca672.js",
     "runtime-main.js.map": "/whatsnext/static/js/runtime-main.32fca672.js.map",
-    "static/js/2.67df5c42.chunk.js": "/whatsnext/static/js/2.67df5c42.chunk.js",
-    "static/js/2.67df5c42.chunk.js.map": "/whatsnext/static/js/2.67df5c42.chunk.js.map",
+    "static/js/2.222eb74e.chunk.js": "/whatsnext/static/js/2.222eb74e.chunk.js",
+    "static/js/2.222eb74e.chunk.js.map": "/whatsnext/static/js/2.222eb74e.chunk.js.map",
     "index.html": "/whatsnext/index.html",
     "static/css/main.39505fb5.chunk.css.map": "/whatsnext/static/css/main.39505fb5.chunk.css.map",
-    "static/js/2.67df5c42.chunk.js.LICENSE.txt": "/whatsnext/static/js/2.67df5c42.chunk.js.LICENSE.txt",
+    "static/js/2.222eb74e.chunk.js.LICENSE.txt": "/whatsnext/static/js/2.222eb74e.chunk.js.LICENSE.txt",
     "static/media/index.css": "/whatsnext/static/media/DSEG7Classic-Bold.aecd2208.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.32fca672.js",
-    "static/js/2.67df5c42.chunk.js",
+    "static/js/2.222eb74e.chunk.js",
     "static/css/main.39505fb5.chunk.css",
-    "static/js/main.441cb7f7.chunk.js"
+    "static/js/main.8ad41ca3.chunk.js"
   ]
 }
