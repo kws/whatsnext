@@ -7,6 +7,8 @@ import { InteractionStatus } from "@azure/msal-browser";
 import { callMsGraph } from "../utils/MsGraphApiCall";
 import Event from "./Event";
 
+const RELOAD_INTERVAL_IN_MINUTES = 1;
+
 const loadAndPrepareData = async () => {
     const graphData = await callMsGraph();
     const events = (graphData && graphData.value) ? graphData.value : [];
@@ -15,6 +17,7 @@ const loadAndPrepareData = async () => {
         const date = new Date(event.start.dateTime+"Z")
         const timeRep = `${date.getHours()}`.padStart(2, '0') + ':' +`${date.getMinutes()}`.padStart(2, '0')
         event.startinfo = {date, timeRep}
+        return event;
     });
     console.log("events", events);
     return events;
@@ -43,9 +46,23 @@ const Calendar = () => {
         }
     },[]);
 
+    useEffect(() => {
+        const timer = setInterval(() => {
+            if (inProgress === InteractionStatus.None) {
+                loadAndPrepareData().then(events => {
+                    setEvents(events);
+                });
+            }
+        }, RELOAD_INTERVAL_IN_MINUTES * 60 * 1000);
+        return () => {
+            console.log("Stopping timer");
+            clearInterval(timer);
+        }
+    }, [inProgress]);
 
     events.map(event => {
         event.startinfo.timeDiff = event.startinfo.date - time;
+        return event;
     });
 
     return (

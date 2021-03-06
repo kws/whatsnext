@@ -15,8 +15,8 @@ const Event = ({event}) => {
         timeRep = '~ past ~';
     } else if (hours > 0) {
         timeRep = `${hours}h ${_0(minutes)}m`;
-    } else if (minutes > 10) {
-        timeRep = `${_0(minutes)}m`;
+    } else if (minutes > 9) {
+        timeRep = `${minutes}m`;
     } else {
         timeRep = `${minutes}m ${_0(seconds)}s`;
     }
