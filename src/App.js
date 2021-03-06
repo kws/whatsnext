@@ -1,29 +1,22 @@
 import React from 'react'
 import { useMsal } from "@azure/msal-react";
-import Calendar from "./components/calendar";
+import Calendar from "./components/Calendar";
 import { loginRequest } from "./authConfig";
 
 export function App() {
     const { instance, accounts, inProgress } = useMsal();
-
-    console.log("Accounts", accounts)
-
     if (accounts.length > 0) {
         return (
-            <>
-                <p>There are currently {accounts.length} users signed in! </p>
-                <Calendar />
-                <button onClick={() => instance.logout()}>Logout</button>
-            </>
+            <Calendar />
         )
     } else if (inProgress === "login") {
-        return <span>Login is currently in progress!</span>
+        return <div>Login is currently in progress!</div>
     } else {
         return (
-            <>
-                <span>There are currently no users signed in!</span>
-                <button onClick={() => instance.loginPopup(loginRequest)}>Login</button>
-            </>
+            <div>
+                <span>Please log in to view your upcoming events.</span>
+                <button onClick={() => instance.acquireTokenPopup(loginRequest)}>Login</button>
+            </div>
         );
     }
 }

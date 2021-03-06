@@ -7,7 +7,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ul {
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: 0;
+  margin-inline-start: 0;
 }
+
+li {
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.event {
+  display: flex;
+}
+
+.event span {
+}
+
+.event .title::after {
+  margin-right: .2em;
+}
+
+.event .title::after {
+  content: " @ ";
+}
+
+.event .diff {
+  text-align: right;
+  width: 4em;
+  margin-right: 1em;
+}
+
