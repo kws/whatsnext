@@ -14,11 +14,12 @@ const isFirefox = firefox > 0; // Only needed if you need to support the redirec
 // Config object to be passed to Msal on creation
 export const msalConfig = {
     auth: {
-        clientId: "0a61c279-646b-4055-a5f1-1c3da7f70f18",
-        redirectUri: "/whatsnext",
-        postLogoutRedirectUri: "/whatsnext"
+        clientId: "212b434a-82b7-43bb-b48d-c8921a2e939d",
+        authority: "https://login.microsoftonline.com/common",
+        redirectUri: "/whatsnext/"
     },
     cache: {
+        cacheLocation: "sessionStorage", // This configures where your cache will be stored
         storeAuthStateInCookie: isIE || isEdge || isFirefox
     },
     system: {

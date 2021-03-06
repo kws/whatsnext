@@ -1,10 +1,7 @@
 import React from 'react'
 import { useMsal } from "@azure/msal-react";
 import Calendar from "./components/calendar";
-
-const loginRequest = {
-    scopes: ["Calendars.Read"]
-}
+import { loginRequest } from "./authConfig";
 
 export function App() {
     const { instance, accounts, inProgress } = useMsal();
