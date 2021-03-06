@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/whatsnext/static/css/main.d809a3f7.chunk.css",
-    "main.js": "/whatsnext/static/js/main.4c557872.chunk.js",
-    "main.js.map": "/whatsnext/static/js/main.4c557872.chunk.js.map",
+    "main.css": "/whatsnext/static/css/main.39505fb5.chunk.css",
+    "main.js": "/whatsnext/static/js/main.441cb7f7.chunk.js",
+    "main.js.map": "/whatsnext/static/js/main.441cb7f7.chunk.js.map",
     "runtime-main.js": "/whatsnext/static/js/runtime-main.32fca672.js",
     "runtime-main.js.map": "/whatsnext/static/js/runtime-main.32fca672.js.map",
-    "static/js/2.e86b8a9d.chunk.js": "/whatsnext/static/js/2.e86b8a9d.chunk.js",
-    "static/js/2.e86b8a9d.chunk.js.map": "/whatsnext/static/js/2.e86b8a9d.chunk.js.map",
+    "static/js/2.67df5c42.chunk.js": "/whatsnext/static/js/2.67df5c42.chunk.js",
+    "static/js/2.67df5c42.chunk.js.map": "/whatsnext/static/js/2.67df5c42.chunk.js.map",
     "index.html": "/whatsnext/index.html",
-    "static/css/main.d809a3f7.chunk.css.map": "/whatsnext/static/css/main.d809a3f7.chunk.css.map",
-    "static/js/2.e86b8a9d.chunk.js.LICENSE.txt": "/whatsnext/static/js/2.e86b8a9d.chunk.js.LICENSE.txt",
+    "static/css/main.39505fb5.chunk.css.map": "/whatsnext/static/css/main.39505fb5.chunk.css.map",
+    "static/js/2.67df5c42.chunk.js.LICENSE.txt": "/whatsnext/static/js/2.67df5c42.chunk.js.LICENSE.txt",
     "static/media/index.css": "/whatsnext/static/media/DSEG7Classic-Bold.aecd2208.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.32fca672.js",
-    "static/js/2.e86b8a9d.chunk.js",
-    "static/css/main.d809a3f7.chunk.css",
-    "static/js/main.4c557872.chunk.js"
+    "static/js/2.67df5c42.chunk.js",
+    "static/css/main.39505fb5.chunk.css",
+    "static/js/main.441cb7f7.chunk.js"
   ]
 }
