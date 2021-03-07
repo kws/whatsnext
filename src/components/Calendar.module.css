@@ -4,6 +4,7 @@
 }
 
 .timeDisplay {
+    position: fixed;
     font-family: D7CBO, cursive;
     font-size: 20vw;
     color: #222;
