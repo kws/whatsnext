@@ -1,7 +1,7 @@
 import React from 'react'
 import {easeInOutCubic} from 'js-easing-functions';
-import './Event.css';
-
+import styles from './Event.module.css';
+import classNames from 'classnames';
 
 const _0 = (value) => {
     return `${value}`.padStart(2, '0')
@@ -48,17 +48,17 @@ export const formatCountdown = (event) => {
 
 const Event = ({event}) => {
     const diffInSecs = Math.floor(event.timeinfo.timeDiff / 1000);
-    const flashClass = diffInSecs <= 60 && diffInSecs > -300 ? 'flash': '';
-    const pastClass = diffInSecs < -300 ? 'past': '';
+    const flashClass = diffInSecs <= 60 && diffInSecs > -300 ? styles.flash: '';
+    const pastClass = diffInSecs < -300 ? styles.past: '';
 
     const timeRep = formatCountdown(event);
 
     return (
-        <li className={`event ${flashClass} ${pastClass}`}
+        <li className={classNames(styles.event, flashClass, pastClass)}
             style={diffInSecs > 60 ? getBlendColors(diffInSecs) : {}}>
-            <span className="time">{event.timeinfo.startRep}</span>
-            <span className="title">{event.subject}</span>
-            <span className="diff">{timeRep}</span>
+            <span className={styles.time}>{event.timeinfo.startRep}</span>
+            <span className={styles.title}>{event.subject}</span>
+            <span className={styles.diff}>{timeRep}</span>
         </li>
     )
 };

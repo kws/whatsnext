@@ -7,7 +7,8 @@ import { InteractionStatus } from "@azure/msal-browser";
 
 import { callMsGraph } from "../utils/MsGraphApiCall";
 import Event, {formatCountdown} from "./Event";
-import "./Calendar.css";
+import MadeByKaj from "./MadeByKaj";
+import styles from "./Calendar.module.css";
 
 const RELOAD_INTERVAL_IN_MINUTES = 1;
 
@@ -97,12 +98,12 @@ const Calendar = () => {
             <Helmet>
                 <title>{nextEvent ? `${formatCountdown(nextEvent).replaceAll(' ', '')} ${nextEvent.subject}` : "WhatsNext"}</title>
                 <link rel="icon" href={process.env.PUBLIC_URL + `/${icon}`} />
-
             </Helmet>
-            <div className="timeDisplay">{currentTime}</div>
+            <div className={styles.timeDisplay}>{currentTime}</div>
             <ul>
                 {currentEvents.map(event => <Event key={event.id} event={event}/>)}
             </ul>
+            <MadeByKaj />
         </>
     )
 

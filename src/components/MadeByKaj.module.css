@@ -1,0 +1,19 @@
+.love {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    font-size: 50%;
+    background-color: black;
+    padding-bottom: 5px;
+
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+.love a {
+    text-decoration: none;
+    color: cornflowerblue;
+}

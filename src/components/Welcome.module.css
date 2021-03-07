@@ -1,0 +1,26 @@
+
+.intro {
+    margin: 0 2em;
+}
+
+.msauth {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.msauth > button {
+    background: url(../assets/img/ms-auth.svg) no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 42px;
+    width: 200px;
+    overflow: hidden;
+    border: 0;
+}
+
+.msauth > button > span {
+    visibility: hidden;
+}
+
