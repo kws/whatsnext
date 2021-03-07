@@ -16,7 +16,6 @@ export function App() {
         Component = Welcome;
     }
 
-
     return (
         <>
             <Component />

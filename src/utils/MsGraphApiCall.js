@@ -1,5 +1,6 @@
 import { loginRequest, graphConfig } from "../authConfig";
 import { msalInstance } from "../index";
+import dayjs from "dayjs";
 
 export async function callMsGraph() {
     const account = msalInstance.getActiveAccount();
@@ -22,7 +23,11 @@ export async function callMsGraph() {
         headers: headers
     };
 
-    return fetch(graphConfig.graphMeEndpoint, options)
+    const start = dayjs().subtract(1, 'hour');
+    const end = dayjs().add(1, 'day');
+    const url = `${graphConfig.graphMeEndpoint}?StartDateTime=${start.toISOString()}&EndDateTime=${end.toISOString()}`
+
+    return fetch(url, options)
         .then(response => response.json())
         .catch(error => console.log(error));
 }

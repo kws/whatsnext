@@ -54,18 +54,7 @@ export const loginRequest = {
     scopes: ["User.Read", "Calendars.Read"]
 };
 
-const d = new Date();
-d.setHours(0);
-d.setMinutes(0);
-d.setSeconds(0)
-
-const start=d.toISOString();
-
-d.setDate(d.getDate() + 1)
-
-const end=d.toISOString();
-
 // Add here the endpoints for MS Graph API services you would like to use.
 export const graphConfig = {
-    graphMeEndpoint: `https://graph.microsoft.com/v1.0/me/calendar/calendarView?StartDateTime=${start}&EndDateTime=${end}`
+    graphMeEndpoint: 'https://graph.microsoft.com/v1.0/me/calendar/calendarView'
 };

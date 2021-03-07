@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet";
 
 import { useMsal } from "@azure/msal-react";
 import { InteractionStatus } from "@azure/msal-browser";
+import dayjs from "dayjs";
 
 import { callMsGraph } from "../utils/MsGraphApiCall";
 import Event, {formatCountdown} from "./Event";
@@ -19,7 +20,7 @@ const loadAndPrepareData = async () => {
     events.map(event => {
         const start = new Date(event.start.dateTime+"Z")
         const end = new Date(event.end.dateTime+"Z")
-        const startRep = `${start.getHours()}`.padStart(2, '0') + ':' +`${start.getMinutes()}`.padStart(2, '0')
+        const startRep = dayjs(start).format("HH:mm")
         event.timeinfo = {start, end, startRep}
         return event;
     });
@@ -80,7 +81,7 @@ const Calendar = () => {
 
     const maxAlertStatus = events.reduce((value, event) => Math.max(value, event.timeinfo.alertStatus), 0)
 
-    let currentTime = new Date(time).toLocaleTimeString().substring(0, 5)
+    let currentTime = dayjs().format("H:mm")
     if ((Math.floor(time / 1000)) % 2 === 0) {
         currentTime = currentTime.replace(":", " ");
     }
