@@ -1,6 +1,6 @@
 @font-face {
   font-family: "D7CBO";
-  src: url("./fonts/DSEG7Classic-Bold.woff") format('woff');
+  src: url("./assets/fonts/DSEG7Classic-Bold.woff") format('woff');
 }
 
 body {
@@ -30,6 +30,7 @@ html, body, #root {
   align-items: center;
   align-content: center;
 }
+
 
 .timeDisplay {
   font-family: D7CBO;

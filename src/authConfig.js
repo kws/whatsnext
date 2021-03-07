@@ -14,7 +14,7 @@ const isFirefox = firefox > 0; // Only needed if you need to support the redirec
 // Config object to be passed to Msal on creation
 export const msalConfig = {
     auth: {
-        clientId: "212b434a-82b7-43bb-b48d-c8921a2e939d",
+        clientId: "3b09f932-30af-4160-b4c0-6900b74a0b08",
         authority: "https://login.microsoftonline.com/common",
         redirectUri: "/whatsnext/"
     },
