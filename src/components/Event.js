@@ -1,5 +1,8 @@
 import React from 'react'
 import {easeInOutCubic} from 'js-easing-functions';
+import './Event.css';
+
+
 const _0 = (value) => {
     return `${value}`.padStart(2, '0')
 }
@@ -45,7 +48,7 @@ export const formatCountdown = (event) => {
 
 const Event = ({event}) => {
     const diffInSecs = Math.floor(event.timeinfo.timeDiff / 1000);
-    const flashClass = diffInSecs < 60 && diffInSecs > -300 ? 'flash': '';
+    const flashClass = diffInSecs <= 60 && diffInSecs > -300 ? 'flash': '';
     const pastClass = diffInSecs < -300 ? 'past': '';
 
     const timeRep = formatCountdown(event);

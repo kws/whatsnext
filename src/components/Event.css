@@ -1,0 +1,59 @@
+
+.event {
+    display: flex;
+}
+
+li {
+    margin-bottom: 2rem;
+}
+
+.time {
+    display: flex;
+    flex: 1;
+    white-space: nowrap;
+
+    margin-left: .3em;
+
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.title {
+    display: flex;
+    flex: 8;
+    align-items: center;
+}
+
+.diff {
+    display: flex;
+    flex: 2;
+
+    font-size: 5vw;
+    white-space: nowrap;
+
+    margin-right: .3em;
+
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.past {
+    color: #666;
+}
+
+.flash {
+    background-color: rgba(255, 0, 0, 1);
+    animation: alert 1s ease-in-out, blinker 3s ease-in 1s infinite;
+}
+
+@keyframes alert {
+    0% {
+        background-color: rgba(128, 0, 0, 1);
+    }
+}
+
+@keyframes blinker {
+    50% {
+        background-color: rgba(255, 0, 0, 0);
+    }
+}

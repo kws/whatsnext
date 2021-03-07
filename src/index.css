@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "D7CBO";
-  src: url("./assets/fonts/DSEG7Classic-Bold.woff") format('woff');
-}
-
 body {
   /*margin: 10em;*/
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -29,76 +24,4 @@ html, body, #root {
   justify-items: center;
   align-items: center;
   align-content: center;
-}
-
-
-.timeDisplay {
-  font-family: D7CBO;
-  font-size: 20vw;
-  color: #222;
-}
-
-ul {
-  position: absolute;
-  top: 0;
-
-  padding-block-start: 0;
-  padding-inline-start: 0;
-  margin-block-start: 0;
-  margin-inline-start: 0;
-  width: 100%;
-}
-
-li {
-  margin-bottom: 2rem;
-}
-
-.event {
-  display: flex;
-}
-
-
-.event .time {
-  display: flex;
-  flex: 1;
-  white-space: nowrap;
-
-  margin-left: .3em;
-
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.event .title {
-  display: flex;
-  flex: 8;
-  align-items: center;
-}
-
-.event .diff {
-  display: flex;
-  flex: 2;
-
-  font-size: 5vw;
-  white-space: nowrap;
-
-  margin-right: .3em;
-
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.past {
-  color: #666;
-}
-
-.flash {
-  background-color: rgba(255, 0, 0, 1);
-  animation: blinker 3s ease-in infinite;
-}
-
-@keyframes blinker {
-  50% {
-    background-color: rgba(255, 0, 0, 0);
-  }
 }

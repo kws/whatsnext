@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "D7CBO";
+    src: url("../assets/fonts/DSEG7Classic-Bold.woff") format('woff');
+}
+
+.timeDisplay {
+    font-family: D7CBO, cursive;
+    font-size: 20vw;
+    color: #222;
+}
+
+ul {
+    position: absolute;
+    top: 0;
+
+    padding-block-start: 0;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-inline-start: 0;
+    width: 100%;
+}
+

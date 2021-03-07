@@ -7,6 +7,7 @@ import { InteractionStatus } from "@azure/msal-browser";
 
 import { callMsGraph } from "../utils/MsGraphApiCall";
 import Event, {formatCountdown} from "./Event";
+import "./Calendar.css";
 
 const RELOAD_INTERVAL_IN_MINUTES = 1;
 
@@ -90,7 +91,6 @@ const Calendar = () => {
     } else if (maxAlertStatus > 400) {
         icon = '2-favicon.ico';
     }
-    console.log(maxAlertStatus, icon);
 
     return (
         <>
