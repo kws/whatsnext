@@ -13,6 +13,8 @@ jobs:
       - name: Install and Build 🔧
         env:
           REACT_APP_AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          REACT_APP_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          REACT_APP_GTM_ID: ${{ secrets.GTM_ID }}
         run: |
           yarn install --frozen-lockfile
           yarn build

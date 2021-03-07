@@ -8,11 +8,15 @@ import { msalConfig } from "./authConfig"
 import './index.css';
 import App from './App';
 
-Sentry.init({
-    dsn: "https://c42f3190b1094dd4b4dd426834da98c6@o108858.ingest.sentry.io/5662792",
-    integrations: [new Integrations.BrowserTracing()],
-    tracesSampleRate: 1.0,
-});
+const SENTRY_DSN = process.env.REACT_APP_SENTRY_DSN
+
+if (SENTRY_DSN) {
+    Sentry.init({
+        dsn: SENTRY_DSN,
+        integrations: [new Integrations.BrowserTracing()],
+        tracesSampleRate: 1.0,
+    });
+}
 
 export const msalInstance = new PublicClientApplication(msalConfig);
 
