@@ -77,7 +77,7 @@ const Calendar = () => {
         return event;
     });
 
-    const currentEvents = events.filter(event => event.timeinfo.ended && !event.isAllDay)
+    const currentEvents = events.filter(event => event.timeinfo.ended && !event.isAllDay && !event.isCancelled)
 
     const maxAlertStatus = events.reduce((value, event) => Math.max(value, event.timeinfo.alertStatus), 0)
 
