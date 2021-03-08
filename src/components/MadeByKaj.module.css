@@ -4,6 +4,7 @@
     left: 0;
     width: 100%;
     font-size: 50%;
+    background-color: black;
     padding-bottom: 5px;
 
     display: flex;
@@ -85,22 +86,3 @@
     }
 }
 
-
-.fullScreen {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background: url(../assets/img/fullscreen.svg) no-repeat top left;
-    background-size: contain;
-    cursor: pointer;
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    overflow: hidden;
-    border: none;
-    color: white;
-}
-
-.fullScreen > span {
-    visibility: hidden;
-}
