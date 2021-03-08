@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/whatsnext/static/css/main.ab508804.chunk.css",
-    "main.js": "/whatsnext/static/js/main.9c5e5fc8.chunk.js",
-    "main.js.map": "/whatsnext/static/js/main.9c5e5fc8.chunk.js.map",
+    "main.css": "/whatsnext/static/css/main.e30e5c35.chunk.css",
+    "main.js": "/whatsnext/static/js/main.59c33b1f.chunk.js",
+    "main.js.map": "/whatsnext/static/js/main.59c33b1f.chunk.js.map",
     "runtime-main.js": "/whatsnext/static/js/runtime-main.32fca672.js",
     "runtime-main.js.map": "/whatsnext/static/js/runtime-main.32fca672.js.map",
-    "static/js/2.a7d4167d.chunk.js": "/whatsnext/static/js/2.a7d4167d.chunk.js",
-    "static/js/2.a7d4167d.chunk.js.map": "/whatsnext/static/js/2.a7d4167d.chunk.js.map",
+    "static/js/2.71d72e0c.chunk.js": "/whatsnext/static/js/2.71d72e0c.chunk.js",
+    "static/js/2.71d72e0c.chunk.js.map": "/whatsnext/static/js/2.71d72e0c.chunk.js.map",
     "index.html": "/whatsnext/index.html",
-    "static/css/main.ab508804.chunk.css.map": "/whatsnext/static/css/main.ab508804.chunk.css.map",
-    "static/js/2.a7d4167d.chunk.js.LICENSE.txt": "/whatsnext/static/js/2.a7d4167d.chunk.js.LICENSE.txt",
+    "static/css/main.e30e5c35.chunk.css.map": "/whatsnext/static/css/main.e30e5c35.chunk.css.map",
+    "static/js/2.71d72e0c.chunk.js.LICENSE.txt": "/whatsnext/static/js/2.71d72e0c.chunk.js.LICENSE.txt",
     "static/media/Calendar.module.css": "/whatsnext/static/media/DSEG7Classic-Bold.aecd2208.woff",
+    "static/media/MadeByKaj.module.css": "/whatsnext/static/media/fullscreen.7f5b62e6.svg",
     "static/media/Welcome.module.css": "/whatsnext/static/media/ms-auth.bf2cff4d.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.32fca672.js",
-    "static/js/2.a7d4167d.chunk.js",
-    "static/css/main.ab508804.chunk.css",
-    "static/js/main.9c5e5fc8.chunk.js"
+    "static/js/2.71d72e0c.chunk.js",
+    "static/css/main.e30e5c35.chunk.css",
+    "static/js/main.59c33b1f.chunk.js"
   ]
 }
