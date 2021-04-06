@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider as ReduxProvider } from 'react-redux'
+
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
+
 import { MsalProvider } from "@azure/msal-react";
 import { PublicClientApplication, EventType } from "@azure/msal-browser";
+
+
 import { msalConfig } from "./authConfig"
-import './index.css';
 import App from './App';
+import store from './store'
+import { update } from './reducers/time'
+import './index.css';
+import {setActiveAccount} from "./reducers/accounts";
+import {EventLoader} from "./helpers/events";
 
 const SENTRY_DSN = process.env.REACT_APP_SENTRY_DSN
 
@@ -18,28 +27,41 @@ if (SENTRY_DSN) {
     });
 }
 
+window.setInterval(() => store.dispatch(update()), 1000);
+
+EventLoader();
+
 export const msalInstance = new PublicClientApplication(msalConfig);
+store.subscribe(() => {
+    const state = store.getState()
+    if (state.accounts.active && state.accounts.active !== msalInstance.getActiveAccount()) {
+        msalInstance.setActiveAccount(state.accounts.active);
+    }
+})
 
 const accounts = msalInstance.getAllAccounts();
 if (accounts.length > 0) {
-    msalInstance.setActiveAccount(accounts[0]);
+    store.dispatch(setActiveAccount(accounts[0]))
 }
 
 msalInstance.addEventCallback((event) => {
-    console.log("msalInstance event", event)
     if (event.eventType === EventType.LOGIN_SUCCESS && event.payload.account) {
-        const account = event.payload.account;
-        msalInstance.setActiveAccount(account);
+        store.dispatch(setActiveAccount(event.payload.account))
     }
 });
 
-// Component
 const AppProvider = () => (
     <MsalProvider instance={msalInstance}>
         <App />
     </MsalProvider>
 );
 
+const AppWithStateProvider = () => (
+    <ReduxProvider store={store}>
+        <AppProvider />
+    </ReduxProvider>
+);
 
-ReactDOM.render(<AppProvider />, document.getElementById("root"));
+
+ReactDOM.render(<AppWithStateProvider />, document.getElementById("root"));
 

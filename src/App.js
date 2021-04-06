@@ -2,7 +2,6 @@ import React from 'react'
 import { useMsal } from "@azure/msal-react";
 import Calendar from "./components/Calendar";
 import Welcome from "./components/Welcome";
-import MadeByKaj from "./components/MadeByKaj";
 
 export function App() {
     const { accounts, inProgress } = useMsal();
@@ -16,12 +15,7 @@ export function App() {
         Component = Welcome;
     }
 
-    return (
-        <>
-            <Component />
-            <MadeByKaj />
-        </>
-    )
+    return <Component />
 }
 
 export default App;

@@ -2,6 +2,7 @@ import React from 'react'
 import {easeInOutCubic} from 'js-easing-functions';
 import styles from './Event.module.css';
 import classNames from 'classnames';
+import dayjs from "dayjs";
 
 const _0 = (value) => {
     return `${value}`.padStart(2, '0')
@@ -56,8 +57,8 @@ const Event = ({event}) => {
     return (
         <li className={classNames(styles.event, flashClass, pastClass)}
             style={diffInSecs > 60 ? getBlendColors(diffInSecs) : {}}>
-            <span className={styles.time}>{event.timeinfo.startRep}</span>
-            <span className={styles.title}>{event.subject}</span>
+            <span className={styles.time}>{dayjs(event.start).format("HH:mm")}</span>
+            <span className={styles.title}>{event.event.subject}</span>
             <span className={styles.diff}>{timeRep}</span>
         </li>
     )
